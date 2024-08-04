@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Rock-Paper-Scissors></Rock-Paper-Scissors></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f9f8;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #000a0b;
+        }
+        .emoji-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .emoji-circle {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: #c9ea12;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .emoji-circle:hover {
+            background-color: #c4f012;
+        }
+        .emoji {
+            font-size: 10em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock-Paper-Scissors</h1>
+    <div class="emoji-container">
+        <div class="emoji-circle" onclick="alert('You chose Rock! ✊')">
+            <span class="emoji">✊</span>
+        </div>
+        <div class="emoji-circle" onclick="alert('You chose Paper! ✋')">
+            <span class="emoji">✋</span>
+        </div>
+        <div class="emoji-circle" onclick="alert('You chose Scissors! ✌️')">
+            <span class="emoji">✌️</span>
+        </div>
+    </div>
+</body>
+</html>
+<table>
+    <tr>
+        <th>PLAYER 1</th>
+    </tr>
+    <tr>
+        <td>
+            <select id="player1Choice">
+                <option value="stone">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th>PLAYER 2</th>
+    </tr>
+    <tr>
+        <td>
+            <select id="player2Choice">
+                <option value="stone">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<div class="button-container">
+    <button onclick="playGame()">Start Game</button>
+</div>
+
+<div class="result" id="result"><b>Game not started...!</b></div>
+
+<script>
+    function playGame() {
+        const player1Choice = document.getElementById('player1Choice').value;
+        const player2Choice = document.getElementById('player2Choice').value;
+
+        let result = '';
+
+        if (player1Choice === player2Choice) {
+            result = "It's a draw!";
+        } else if (
+            (player1Choice === 'stone' && player2Choice === 'scissors') ||
+            (player1Choice === 'paper' && player2Choice === 'stone') ||
+            (player1Choice === 'scissors' && player2Choice === 'paper')
+        ) {
+            result = 'Player 1 wins!';
+        } else {
+            result = 'Player 2 wins!';
+        }
+        document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>
